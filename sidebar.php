@@ -27,7 +27,7 @@ include 'session.php'
                         <i class="fa-solid fa-people-roof"></i><span class="nav-text">Student management</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./addstudnt">Add student</a></li>
+                            <li><a href="student">Add student</a></li>
                             <li><a href="./viewstudent">Student report</a></li>
                             <li><a href="./promotestudent">Promote and demote</a></li>
 
@@ -39,8 +39,8 @@ include 'session.php'
                         <i class="fa-solid fa-school "></i><span class="nav-text">Class</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="addclass">Manage classes</a></li>
-                            <li><a href="add section">Manage sections</a></li>
+                            <li><a href="post">Manage classes</a></li>
+                            <li><a href="section">Manage sections</a></li>
 
                         </ul>
                     </li>
@@ -52,8 +52,8 @@ include 'session.php'
         </a>
         <ul aria-expanded="false">
             <li><a href="makechallan">Create Challan</a></li>
-            <li><a href="viewchallan">View Challan</a></li>
-            <li><a href="familifee">Families fee</a></li>
+            <li><a href="viewchallan">pay challan</a></li>
+            <li><a href="familifee">fee settings</a></li>
         </ul>
     </li>
 
