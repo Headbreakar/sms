@@ -4,14 +4,10 @@ include 'header.php';
 include 'sidebar.php';
 
 // Fetch classes for the dropdown
-$classQuery = "SELECT class_id, class_name FROM classes ORDER BY class_name ASC";
-$classResult = $conn->query($classQuery);
+
 
 // Fetch sections to display
-$sectionQuery = "SELECT sections.section_id, sections.section_name, classes.class_name, sections.created_at 
-                 FROM sections 
-                 JOIN classes ON sections.class_id = classes.class_id 
-                 ORDER BY sections.section_name ASC";
+$sectionQuery = "SELECT * from sections ";
 $sectionResult = $conn->query($sectionQuery);
 ?>
 
@@ -44,9 +40,7 @@ $sectionResult = $conn->query($sectionQuery);
                                     <tr>
                                         <th>Section ID</th>
                                         <th>Section Name</th>
-                                        <th>Class Name</th>
                                         <th>Created At</th>
-                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,12 +50,8 @@ $sectionResult = $conn->query($sectionQuery);
                                             echo "<tr>
                                                     <td>" . htmlspecialchars($sectionRow['section_id']) . "</td>
                                                     <td>" . htmlspecialchars($sectionRow['section_name']) . "</td>
-                                                    <td>" . htmlspecialchars($sectionRow['class_name']) . "</td>
                                                     <td>" . htmlspecialchars($sectionRow['created_at']) . "</td>
-                                                    <td>
-                                                        <a href='editsection.php?section_id=" . urlencode($sectionRow['section_id']) . "' class='btn btn-success'>Edit</a>
-                                                        <a href='deletesection.php?section_id=" . urlencode($sectionRow['section_id']) . "' class='btn btn-danger'>Delete</a>
-                                                    </td>
+                                                   
                                                 </tr>";
                                         }
                                     } else {

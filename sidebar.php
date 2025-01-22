@@ -28,8 +28,8 @@ include 'session.php'
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="student">Add student</a></li>
-                            <li><a href="./viewstudent">Student report</a></li>
-                            <li><a href="./promotestudent">Promote and demote</a></li>
+							<li><a href="./studentreport">Student report</a></li>
+                            <li><a href="./promote">Promote and demote</a></li>
 
                         </ul>
                     </li>
@@ -51,9 +51,8 @@ include 'session.php'
         <i class="fa-solid fa-money-bills"></i><span class="nav-text">Fees management</span>
         </a>
         <ul aria-expanded="false">
-            <li><a href="makechallan">Create Challan</a></li>
-            <li><a href="viewchallan">pay challan</a></li>
-            <li><a href="familifee">fee settings</a></li>
+            <li><a href="challan">Create Challan</a></li>
+            <li><a href="payfees">pay challan</a></li>
         </ul>
     </li>
 
@@ -87,4 +86,6 @@ include 'session.php'
         </div>
         <!--**********************************
             Sidebar end
-        ***********************************-->
+        *
+        
+        **********************************-->

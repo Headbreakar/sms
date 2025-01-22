@@ -38,7 +38,8 @@ $result = $conn->query($query);
                                         <th>Class Name</th>
                                         <th>Standard Monthly Fee</th>
                                         <th>Created At</th>
-                                        <th>Actions</th>
+                                        <th>Created At</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,10 +50,11 @@ $result = $conn->query($query);
                                                     <td>" . htmlspecialchars($row['class_name']) . "</td>
                                                     <td>" . htmlspecialchars($row['standard_monthly_fee']) . "</td>
                                                     <td>" . htmlspecialchars($row['created_at']) . "</td>
-                                                    <td>
-                                                        <a href='editclass?class_id=" . urlencode($row['class_name']) . "' class='btn btn-success'>Edit</a>
-                                                        <a href='deleteclass?class_id=" . urlencode($row['class_name']) . "' class='btn btn-danger'>Delete</a>
-                                                    </td>
+                                                  <td>
+    <a href='editclass.php?class_id=<?= htmlspecialchars(urlencode($Row[class_id])) ?>'class='btn btn-success'>Edit</a>
+</td>
+
+
                                                 </tr>";
                                         }
                                     } else {

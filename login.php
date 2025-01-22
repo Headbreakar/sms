@@ -1,5 +1,6 @@
 <?php
 include 'confiq.php'; // Replace with your database configuration file
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -32,43 +33,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>hazara school managment system</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+<style>.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 
-    <div class="w-full max-w-sm bg-white shadow-md rounded-lg p-6">
-        <h2 class="text-2xl font-bold text-center text-gray-700 mb-4">Login</h2>
-        <form action="" method="POST" class="space-y-4">
-            <!-- Username -->
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="username" name="username" 
-                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" 
-                       required>
-            </div>
+.fa-eye, .fa-eye-slash {
+    font-size: 20px;
+}
+</style>
+<body class="h-100">
+    
+    <div class="login-form-bg h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-xl-6">
+                    <div class="form-input-content">
+                        <div class="card login-form mb-0">
+                            <div class="card-body pt-5">
+                                <a class="text-center" href="index.html"> <h4>Sign In</h4></a>
 
-            <!-- Password -->
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" name="password" 
-                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" 
-                       required>
-            </div>
+                                <!-- Display error message -->
+                                <?php if (isset($error)): ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <?php echo $error; ?>
+                                    </div>
+                                <?php endif; ?>
 
-            <!-- Submit Button -->
-            <div>
-                <button type="submit" 
-                        class="w-full bg-blue-500 text-white font-medium px-4 py-2 rounded-lg shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Login
-                </button>
+                                <form class="mt-5 mb-5 login-input" method="post">
+                                    <div class="form-group">
+                                        <input type="text" name="username" class="form-control" placeholder="user name" required>
+                                    </div>
+                                    <div class="form-group mb-2" style="position: relative;">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+    <span class="toggle-password" onclick="togglePassword()">
+        <i class="fa fa-eye" id="toggleIcon"></i>
+    </span>
+</div>
+
+                                    <div class="form-group mb-2">
+                                        <p class="text-right login-form__footer"><a href="forget-password.html" class="text-primary">Forget Password</a></p>
+                                    </div>
+                                    <input type="submit" value="Sign in" class="btn login-form__btn submit w-100"></input>
+                                </form
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
+<script>function togglePassword() {
+    var passwordField = document.getElementById("password");
+    var toggleIcon = document.getElementById("toggleIcon");
 
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordField.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+    }
+}
+</script>
 </body>
 </html>
